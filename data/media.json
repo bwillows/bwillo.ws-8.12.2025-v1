@@ -1,0 +1,17 @@
+{
+  "placeholder": {
+    "type": "image",
+    "extension": "jpg",
+    "files": {
+      "original": "/original/placeholder.jpg",
+      "resized": {
+        "720": "/resized/720/placeholder.jpg",
+        "1080": "/resized/1080/placeholder.jpg",
+        "full": "/resized/full/placeholder.jpg"
+      }
+    },
+    "created": 0,
+    "uploaded": 0,
+    "linked_post": "test"
+  }
+}

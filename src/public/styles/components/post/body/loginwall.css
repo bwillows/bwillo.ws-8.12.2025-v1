@@ -1,0 +1,23 @@
+.post-loginwall {
+  padding: 16px;
+  text-align: center;
+  align-items: center;
+  background-color: lightgray;
+  font-size: var(--font-size-md);
+}
+.post-loginwall-login-link-block {
+  padding: 16px;
+}
+.post-loginwall-login-button {
+  padding: 16px;
+  border: none;
+  background-color: black;
+  color: white;
+  min-width: 200px;
+
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+}
+.post-loginwall-login-button:hover {
+  cursor: pointer;
+}

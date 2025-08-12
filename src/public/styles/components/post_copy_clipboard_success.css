@@ -1,0 +1,11 @@
+#post-copy-clipboard-success {
+  position: fixed;
+  z-index: 20;
+  left: 0;
+  bottom: 0;
+  margin: 16px;
+  background-color: black;
+  padding: 16px;
+  color: white;
+  font-size: var(--font-size-lg)
+}

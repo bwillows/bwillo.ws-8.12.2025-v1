@@ -1,0 +1,74 @@
+<div class="post" id="post-<%= postID %>">
+  <div class="post-header">
+    <div class="post-header-left">
+      <div class="post-time">
+        <div class="post-time-primary">
+          <time datetime="<%= created.date %>" class="timestamp" data-epoch-timestamp="<%= created.timestamp %>"><%= created.formatted %></time>
+        </div>
+        <div class="post-time-dropdown">
+          <%= created.formatted_expanded %>
+        </div>
+      </div>
+    </div>
+    <div class="post-header-center-fill">
+    </div>
+    <div class="post-header-right">
+      <div class="post-pin <%= !pinned ? 'hidden' : '' %>">
+        <span class="post-pin-icon">
+          <svg 
+            xmlns="http://www.w3.org/2000/svg" 
+            viewBox="0 0 384 512" 
+            width="1em" 
+            height="1em" 
+            fill="currentColor"
+            aria-hidden="true"
+            focusable="false"
+            style="vertical-align: middle;"
+            >
+            <path d="M64 0l-32 0 0 64 61.5 0-10 129.5C33.1 228.1 0 286.2 0 352l384 0c0-65.8-33.1-123.9-83.6-158.5L290.5 64 352 64 352 0 64 0zm96 400l0 144 64 0 0-144-64 0z"/>
+          </svg>
+        </span>
+      </div>
+      <div class="post-header-ellipses">
+        <div class="post-header-ellipses-button">
+          <svg 
+            xmlns="http://www.w3.org/2000/svg" 
+            viewBox="0 0 448 512" 
+            width="1em" 
+            height="1em" 
+            fill="currentColor"
+            aria-hidden="true"
+            focusable="false"
+            style="vertical-align: middle;"
+          >
+            <path d="M0 304l0-96 96 0 0 96-96 0zm176 0l0-96 96 0 0 96-96 0zm176-96l96 0 0 96-96 0 0-96z"/>
+          </svg>
+        </div>
+        <div class="post-header-ellipses-dropdown">
+          <div class="post-header-ellipses-dropdown-entry">
+            <div class="flex-left">
+              Copy link
+            </div>
+            <div class="flex-right">
+              <svg 
+                  xmlns="http://www.w3.org/2000/svg" 
+                  viewBox="0 0 640 640" 
+                  width="1em" 
+                  height="1em" 
+                  fill="currentColor"
+                  aria-hidden="true"
+                  focusable="false"
+                  style="vertical-align: middle;"
+                >
+                <path d="M384 64L352 64L352 128L466.7 128L265.3 329.4L242.7 352L288 397.3L310.6 374.7L512 173.3L512 288L576 288L576 64L384 64zM96 160L64 160L64 576L480 576L480 384L416 384L416 512L128 512L128 224L256 224L256 160L96 160z"/>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="post-body">
+    <%- body %>
+  </div>
+</div>

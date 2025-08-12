@@ -1,0 +1,80 @@
+<div class="post-content">
+  <div class="post-media 
+    <%= (typeof media !== 'undefined' && Array.isArray(media) && media.length >= 1) ? '' : 'hidden' %>
+    <%= (typeof media !== 'undefined' && Array.isArray(media) && media.length > 1) ? 'swiper' : '' %>
+  ">
+    <div class="post-media-overlay <%= (typeof media !== 'undefined' && Array.isArray(media) && media.length > 1) ? '' : 'hidden' %>">
+      <div class="post-media-info">
+        <span class="post-media-type post-media-type-image <%= typeof media !== 'undefined' && media[0] && media[0].type == 'image' ? '' : 'hidden' %>">
+          IMG
+        </span>
+        <span class="post-media-type post-media-type-video <%= typeof media !== 'undefined' && media[0] && media[0].type == 'video' ? '' : 'hidden' %>">
+          VIDEO
+        </span>
+        <span class="post-media-active-slide">1</span>
+        <span>/</span>
+        <span class="post-media-max-slide"><%= (typeof media !== 'undefined' && Array.isArray(media)) ? media.length : '?' %></span>
+        
+      </div>
+      <div class="post-media-manual-controls">
+        <div class="post-media-manual-control-hitbox post-media-manual-control-left-hitbox hidden">
+          <div class="post-media-manual-control post-media-manual-control-left unselectable">
+            <svg 
+              xmlns="http://www.w3.org/2000/svg" 
+              viewBox="0 0 384 512" 
+              width="1em" 
+              height="1em" 
+              fill="currentColor"
+              aria-hidden="true"
+              focusable="false"
+              style="vertical-align: middle;"
+            >
+            <path d="M179 320L201.6 342.6L361.6 502.6L384.2 525.2L429.5 479.9L269.5 319.9L406.9 182.5L429.5 159.9L384.2 114.6L361.6 137.2L201.6 297.2L179 319.8z"/>
+          </svg>
+          </div>
+        </div>
+        <div class="post-media-manual-control-hitbox post-media-manual-control-right-hitbox <%= (typeof media !== 'undefined' && Array.isArray(media) && media.length > 1) ? '' : 'hidden' %>">
+          <div class="post-media-manual-control post-media-manual-control-right unselectable">
+            <svg 
+              xmlns="http://www.w3.org/2000/svg" 
+              viewBox="0 0 384 512" 
+              width="1em" 
+              height="1em" 
+              fill="currentColor"
+              aria-hidden="true"
+              focusable="false"
+              style="vertical-align: middle;"
+            >
+            <path d="M461.5 320L438.9 342.6L278.9 502.6L256.3 525.3L211 480L233.6 457.4L371 320L233.6 182.6L211 160L256.3 114.7L278.9 137.4L438.9 297.4L461.5 320z"/>
+          </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="post-media-content <%= (typeof media !== 'undefined' && Array.isArray(media) && media.length > 1) ? 'swiper-wrapper' : '' %>">
+      <% if (media && Array.isArray(media)) { %>
+      <% media.forEach(function(item) { %>
+        <!-- START MEDIA ELEMENT -->
+        <div class="swiper-slide post-media-content-slide <%= item && item.type ? 'media-type-' + item.type : '' %>">
+          <%= item.id %>
+        </div>
+        <!-- END MEDIA ELEMENT -->
+      <% }); %>
+      <% } else { %>
+        <!-- PLACEHOLDER -->
+        <p>No media available.</p>
+      <% } %>
+    </div>
+  </div>
+  <div class="post-text <%= (typeof text === 'undefined' || text === null) ? 'hidden' : '' %>">
+    <div class="post-text-full <%= (typeof text !== 'undefined' && text !== null && typeof text.snippet !== 'undefined' && text.snippet !== null) ? 'hidden' : '' %>">
+      <%= (typeof text !== 'undefined' && text !== null && typeof text.full !== 'undefined' && text.full !== null) ? text.full : '' %>
+    </div>
+    <div class="post-text-snippet <%= (typeof text === 'undefined' || text === null || typeof text.snippet === 'undefined') ? 'hidden' : '' %>">
+      <span><%= (typeof text !== 'undefined' && text !== null && typeof text.snippet !== 'undefined' && text.snippet !== null) ? text.snippet : '' %></span>
+      <span class="post-text-snippet-expand">
+        ... view more
+      </span>
+    </div>
+  </div>
+</div>

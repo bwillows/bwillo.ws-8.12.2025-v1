@@ -1,0 +1,81 @@
+#auth-container {
+  padding: 16px;
+}
+.input-field {
+  width: 100%;
+  display: flex;
+  
+  background-color: #f1f3f5;
+  margin-bottom: 16px;
+  transition: 0.1s ease-in-out;
+}
+.input-field > * {
+  background-color: transparent;
+  font-size: var(--font-size-sm);
+}
+.input-field svg {
+  margin: 12px;
+  font-size: var(--font-size-lg);
+}
+.input-field input {
+  width: 100%;
+  border: none;
+  padding: 12px;
+  padding-left: 0;
+}
+.input-field {
+  border: 2px solid #f1f3f5;
+}
+.input-field:hover {
+  border: 2px solid var(--color-border);
+}
+.input-field:focus-within {
+  /* styles when the input inside is focused */
+  border: 2px solid var(--color-text-link);
+}
+.input-field .input-icon,
+.input-field .input-icon * {
+  background-color: transparent;
+  color: #70869f;
+}
+.input-field:hover .input-icon,
+.input-field:hover .input-icon * {
+  background-color: transparent;
+  color: black;
+}
+.input-field:focus-within .input-icon *  {
+  /* styles when the input inside is focused */
+  color: var(--color-text-link);
+}
+.input-field input:focus,
+.input-field textarea:focus,
+.input-field select:focus {
+  outline: none;       /* removes the focus outline */
+  box-shadow: none;    /* removes any browser-specific shadow (e.g., Chrome's blue glow) */
+}
+#forgot-password {
+  text-align: right;
+  margin-bottom: 16px;
+}
+#form-submit {
+  border: none;
+  padding: 12px;
+  width: 100%;
+  background-color: black;
+  color: white;
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+#form-submit:hover {
+  cursor: pointer;
+}
+#auth-container .link {
+  color: var(--color-text-link);
+}
+#auth-container .link:hover {
+  text-decoration: underline;
+}
+#auth-header {
+  margin-bottom: 16px;
+}

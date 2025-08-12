@@ -1,0 +1,98 @@
+.post {
+  border-bottom: 1px solid var(--color-border);
+}
+.post * {
+  /* unless set otherwhise */
+  background-color: transparent;
+  /* border: 1px solid black; */
+}
+.post .post-header {
+  white-space: nowrap;
+}
+.post .active {
+  display: block;
+}
+.post:hover {
+  cursor: pointer;
+  background-color: #f8f9fa;
+}
+.post-header {
+  display: flex;
+  justify-content: space-between;
+  z-index: 5;
+}
+.post-header-center-fill {
+  width: 100%;
+}
+.post-time {
+  position: relative;
+  padding: 16px;
+}
+.post-time:hover .post-time-dropdown {
+  display: block;
+}
+.post-time-dropdown {
+  display: none;
+  margin-top: 8px;
+  padding: 4px;
+  background-color: white;
+  position: absolute;
+  z-index: 10;
+  font-size: var(--font-size-xs);
+  white-space: nowrap;
+}
+.post-header time {
+  font-size: var(--font-size-md);
+  color: #44596e;
+}
+.post-pin {
+  padding: 16px;
+}
+.post-header-left {
+  display: flex;
+  justify-content: flex-start;
+}
+.post-header-right {
+  display: flex;
+  justify-content: flex-end;
+}
+.post-header-ellipses {
+  position: relative;
+  z-index: 10;
+}
+.post-header-ellipses:hover {
+  background-color: #f1f3f5;
+}
+.post-header-ellipses-button {
+  padding: 16px;
+}
+.post-header-ellipses-dropdown {
+  position: absolute;
+  top: 100;
+  right: 0;
+  display: none;
+}
+.post-header-ellipses-button:hover {
+  cursor: pointer;
+}
+.post-header-ellipses:hover .post-header-ellipses-dropdown {
+  display: block;
+}
+.post-header-ellipses-dropdown {
+  padding: 4px;
+  background-color: white;
+  border: 1px solid var(black);
+}
+.post-header-ellipses-dropdown-entry {
+  padding: 12px;
+  min-width: 150px;
+  display: flex;
+  justify-content: space-between;
+}
+.post-header-ellipses-dropdown-entry:hover {
+  cursor: pointer;
+  background-color: #f1f3f5;
+}
+.post .post-text {
+  padding: 16px;
+}

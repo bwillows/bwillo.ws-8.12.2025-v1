@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/styles/pages/auth/shared.css">
+    <link rel="stylesheet" href="/styles/pages/auth/signup.css">
+    <!-- Shared head component injected by main.js -->
+  </head>
+  <body data-page="signup">
+    <main>
+      <div class="inner">
+        <div id="auth-container">
+          <h1 id="auth-container-header">SIGNUP</h1>
+          <form id="form">
+            <div class="form-field-group">
+              <input id="form-field-input-email" class="form-text-input" type="email" placeholder="Email@example.com" name="email" required>
+            </div>
+            <div class="form-field-group">
+              <input id="form-field-input-password" class="form-text-input" type="password" placeholder="Password" name="password" required>
+            </div>
+            <div class="form-field-group">
+              <input id="form-field-input-confirm-password" class="form-text-input" type="password" placeholder="Confirm Password" name="confirm_password" required>
+            </div>
+            <div class="form-field-group">
+              <button id="form-submit" type="submit">SUBMIT</button>
+            </div>
+            <div class="form-field-group">
+              <span>Already have an account?</span>
+                <a href="/auth/login">
+                  <span>Login.</span>
+                </a>
+            </div>
+
+          </form>
+        </div>
+      </div>
+    </main>
+    <!-- Shared component -->
+    <script type="module" src="/scripts/main.js"></script>
+    <!-- Page-specific -->
+    <script type="module" src="/scripts/pages/signup.js"></script>
+  </body>
+</html>

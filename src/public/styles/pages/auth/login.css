@@ -1,0 +1,11 @@
+main .inner {
+  border-left: 1px solid var(--color-border);
+  border-right: 1px solid var(--color-border);
+  min-height: 100%;
+}
+/*
+main .inner {
+  border-left: 1px solid var(--color-border);
+  border-right: 1px solid var(--color-border);
+}
+*/

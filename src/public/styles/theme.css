@@ -1,0 +1,53 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: "Roboto", system-ui, -apple-system, BlinkMacSystemFont,
+  "Segoe UI", Oxygen, Ubuntu, Cantarell, "Open Sans",
+  "Helvetica Neue", sans-serif;
+  background-color: var(--color-background);
+  color: var(--color-text);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+:root {
+  /* Colors */
+  --color-background: #ffffff;
+  --color-background-secondary: #f8f9fa;
+  --color-background-alt: #e9ecef;
+  --color-placeholder: #dee2e6;
+
+  --color-text: #1c1c1c;
+  --color-text-muted: #6c757d;
+  --color-text-inverse: #ffffff;
+  --color-text-link: rgb(16, 131, 254);
+
+  --color-border: #d4dbe3;
+  --color-border-muted: #ced4da;
+
+  --color-primary: #0079d3;
+  --color-primary-hover: #005999;
+  --color-error: #ff585b;
+  --color-success: #24a148;
+  --color-warning: #ffb627;
+
+
+  --font-size-xs: 0.75rem;   /* 12px */
+  --font-size-sm: 0.875rem;  /* 14px */
+  --font-size-md: 1rem;      /* 16px */
+  --font-size-lg: 1.125rem;  /* 18px */
+  --font-size-xl: 1.25rem;   /* 20px */
+  --font-size-xxl: 1.5rem;   /* 24px */
+
+  --white-disabled: #d9d9d9;  /* light grayish white for disabled */
+  --white-active: #ffffff;    /* pure white for active */
+  --white-active-hover: #f0f0f0; /* slightly off-white for active + hover */
+}

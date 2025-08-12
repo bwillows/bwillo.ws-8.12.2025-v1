@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/styles/pages/auth/auth.css">
+    <link rel="stylesheet" href="/styles/pages/auth/login.css">
+    <!-- Shared head component injected by main.js -->
+
+
+    <script src="/libs/swiper/swiper-bundle.min.js"></script>
+    <link rel="stylesheet" href="/libs/swiper/swiper-bundle.min.css">
+  </head>
+  <body data-page="login" data-page-type="auth">
+    <main>
+      <div class="inner">
+        <div id="auth-container">
+          <div id="alert-login-result" class="alert-red hidden">
+            <div id="alert-login-result-text">
+            </div>
+          </div>
+          <div id="auth-header">
+            <span>Log in to continue</span>
+          </div>
+          <form id="login-form">
+            <div class="input-group">
+              <div class="input-field">
+                <div class="input-icon">
+                  <svg 
+                    xmlns="http://www.w3.org/2000/svg" 
+                    viewBox="0 0 640 640" 
+                    width="1em" 
+                    height="1em" 
+                    fill="currentColor"
+                    aria-hidden="true"
+                    focusable="false"
+                    style="vertical-align: middle;"
+                  >
+                  <path d="M320 128C214 128 128 214 128 320C128 426 214 512 320 512L352 512L352 576L320 576C178.6 576 64 461.4 64 320C64 178.6 178.6 64 320 64C461.4 64 576 178.6 576 320L576 448L504 448C468 448 435.8 432.2 413.8 407.1C390.4 432.2 357.1 448 320 448C249.3 448 192 390.7 192 320C192 249.3 249.3 192 320 192C352.5 192 382.1 204.1 404.7 224L448 224L448 328C448 358.9 473.1 384 504 384L512 384L512 320C512 214 426 128 320 128zM384 320C384 284.7 355.3 256 320 256C284.7 256 256 284.7 256 320C256 355.3 284.7 384 320 384C355.3 384 384 355.3 384 320z"/>
+                </svg>
+              </div>
+                <input id="email-input" type="text" placeholder="Email address" name="email"
+                  autocapitalize="none" autocomplete="email" autocorrect="on" dir="auto" enterkeyhint="next" rows="1" spellcheck="true" virtualkeyboardpolicy="auto"
+                >
+              </div>
+            </div>
+            <div class="input-group">
+              <div class="input-field">
+                <div class="input-icon">
+                  <svg 
+                    xmlns="http://www.w3.org/2000/svg" 
+                    viewBox="0 0 640 640" 
+                    width="1em" 
+                    height="1em" 
+                    fill="currentColor"
+                    aria-hidden="true"
+                    focusable="false"
+                    style="vertical-align: middle;"
+                    >
+                  <path d="M320 80C364.2 80 400 115.8 400 160L400 224L240 224L240 160C240 115.8 275.8 80 320 80zM192 272L240 272L240 272L400 272L400 272L448 272L448 272L464 272L464 528L176 528L176 272L192 272L192 272zM192 160L192 224L128 224L128 576L512 576L512 224L448 224L448 160C448 89.3 390.7 32 320 32C249.3 32 192 89.3 192 160zM344 360L344 336L296 336L296 464L344 464L344 360z"/>
+                </svg>
+              </div>
+                <input id="form-field-input-password" class="form-text-input" type="password" placeholder="Password" name="password"
+                  autocomplete="new-password" autocapitalize="none" autocorrect="on" dir="auto" enterkeyhint="next" rows="1" spellcheck="true"
+                >
+              </div>
+            </div>
+            <div id="forgot-password">
+              <a id="forgot-password-link">
+                <a href="/auth/forgot-password">
+                  <span id="forgot-password-text" class="link">
+                    Forgot Password?
+                  </span>
+                </a>
+              </a>
+            </div>
+            <div class="input-group">
+              <button id="form-submit" type="submit">LOG IN</button>
+            </div>
+            <div id="signup-link-section">
+              <span>Don't have an account?</span>
+              <a href="/auth/signup">
+                <span class="link">Signup.</span>
+              </a>
+            </div>
+          </form>
+        </div>
+      </div>
+    </main>
+    <!-- Shared component -->
+    <script type="module" src="/scripts/main.js"></script>
+    <!-- Page-specific -->
+    <script type="module" src="/scripts/pages/auth/login.js"></script>
+
+  </body>
+</html>

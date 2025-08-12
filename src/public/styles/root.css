@@ -1,0 +1,39 @@
+* {
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+
+.inner {
+    margin: 0 auto;
+    width: 100%;
+    max-width: 450px;
+}
+html, body {
+  height: 100%;
+  margin: 0;
+  
+  
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+/*
+.swiper-wrapper {
+  cursor: grab;
+}
+
+.swiper-container:active,
+.swiper-container.dragging,
+.swiper-wrapper.dragging {
+  cursor: grabbing;
+}
+*/
+
+main {
+  flex: 1; /* pushes footer down when page is short */
+  color: var(--color-text);
+  background-color: var(--color-background);
+}
