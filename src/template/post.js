@@ -6,7 +6,7 @@ import dotenv from 'dotenv';
 import { fileURLToPath } from 'url';
 import { exists_post, get_post } from '../private/posts.js';
 import { formatTimestamp, formatTimestampExpanded, formatTimestampWithTimezoneExpanded, toDate } from '../public/scripts/utils.js'
-import { get_media_data } from '../private/media/data.js';
+import { get_media_data } from '../private/media.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);

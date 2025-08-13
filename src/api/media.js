@@ -4,7 +4,7 @@ import path from 'path';
 import express from 'express';
 import dotenv from 'dotenv';
 import { fileURLToPath } from 'url';
-import { get_pinned_posts, get_post, get_posts_length, get_sorted_posts_block, posts, validate_postID_format } from '../private/posts.js';
+import { get_media_data, validate_mediaID_format, get_media_length, get_sorted_media_block } from '../private/media.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -15,32 +15,32 @@ const rootPath = process.cwd();
 
 const router = express.Router();
 
-// query individual post object
-router.get(['/post/:postID'], (req, res) => {
-  let postID = req.params.postID;
+// query individual media object
+router.get(['/media/:mediaID'], (req, res) => {
+  let mediaID = req.params.mediaID;
 
-  if(postID && postID != undefined && postID != null) {
-      if(validate_postID_format(postID)) {
-        let return_post_obj = get_post(postID);
+  if(mediaID && mediaID != undefined && mediaID != null) {
+      if(validate_mediaID_format(mediaID)) {
+        let return_media_obj = get_media_data(mediaID);
 
         // TODO: strip private information
 
-        res.json(return_post_obj);
+        res.json(return_media_obj);
       }
   }
 });
 
 /*
 
-query post block
+query media block
 
 param "start" = start index
 param "length" = block size
 
-returns array of timestamp sorted post IDs
+returns array of timestamp sorted mediaIDs
 
 */
-router.get(['/posts'], (req, res) => {
+router.get(['/media'], (req, res) => {
   let start = req.query.start;
   let length = req.query.length;
 
@@ -49,20 +49,17 @@ router.get(['/posts'], (req, res) => {
   }
 
   if(length == "full" || length == "all" || length == "*") {
-    length = get_posts_length();
+    length = get_media_length();
   }
+
   
   let result = new Array();
 
   if(start && start != undefined && start != null && length && length != undefined && length != null) {
-    res.json(get_sorted_posts_block(start, length));
+    res.json(get_sorted_media_block(start, length));
   } else {
     res.send(JSON.stringify(result));
   }
-});
-
-router.get(['/posts/pinned'], (req, res) => {
-  res.json(get_pinned_posts());
 });
 
 export default router;

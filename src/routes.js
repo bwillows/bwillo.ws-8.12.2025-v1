@@ -6,6 +6,8 @@ import dotenv from 'dotenv';
 import { fileURLToPath } from 'url';
 import { exists_post, get_post } from './private/posts.js';
 import { generate_post } from './template/post.js';
+import { exists_media } from './private/media.js';
+import { generate_media_thumbnail } from './template/media-thumbnail.js';
 
 const router = express.Router();
 
@@ -82,6 +84,21 @@ router.get(['/components/post/:postID'], (req, res) => {
   // validate user
 
   res.send(generate_post(postID));
+});
+
+router.get(['/components/media-thumbnail/:mediaID'], (req, res) => {
+  let mediaID = req.params.mediaID;
+  if(!exists_media(mediaID)) {
+    return res.status(500).send("Invalid media ID");
+  }
+
+  let userID;
+  let token;
+
+  // validate user
+
+
+  res.send(generate_media_thumbnail(userID, mediaID));
 });
 
 router.get(['/login', "/login.html"], (req, res) => {

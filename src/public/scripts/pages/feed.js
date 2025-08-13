@@ -1,12 +1,30 @@
-import { post_create, post_init } from '../components/post.js';
+import { post_fetch, post_generate_wrapper, post_initialize } from '../components/post.js';
 import { createElementFromHTML } from '../utils.js';
 
-let insert_index = 0;
+const feed_element = document.querySelector("#feed");
 
 let total_inserted_posts = 0;
 let last_inserted_post_ID;
 
-const feed_element = document.querySelector("#feed");
+let sorted_post_IDs = await fetch("/api/posts?start=0&length=all");
+sorted_post_IDs = await sorted_post_IDs.json();
+
+for(let i in sorted_post_IDs) {
+  let postID = sorted_post_IDs[i];
+
+  let post_wrapper_html = post_generate_wrapper(postID);  
+
+  let post_wrapper_element = feed_element.appendChild(post_wrapper_html);
+
+  post_fetch(postID)
+    .then(post_html => {
+      let post_element = createElementFromHTML(post_html);
+      post_wrapper_element.appendChild(post_element);
+      post_initialize(postID);
+    });
+}
+
+/*
 
 async function insert_post(postID) {
   let post_element = await post_create(postID);
@@ -49,3 +67,4 @@ window.addEventListener("scroll", () => {
     console.log(distance_from_bottom);
   }
 });
+*/

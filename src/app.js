@@ -8,6 +8,7 @@ import morgan from 'morgan';
 import { fileURLToPath } from 'url';
 
 import api_postsRouter from './api/posts.js'
+import api_mediaRouter from './api/media.js'
 
 dotenv.config();
 
@@ -30,6 +31,7 @@ app.use('/api', (req, res, next) => {
     next();
 });
 app.use("/api", api_postsRouter);
+app.use("/api", api_mediaRouter);
 
 
 app.use('/script', (req, res, next) => {

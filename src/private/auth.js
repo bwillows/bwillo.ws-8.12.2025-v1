@@ -9,7 +9,6 @@ let users;
 let user_emails = new Map();
 let user_tokens = new Map();
 
-
 export function load_all_users() {
   users = JSON.parse(fs.readFileSync(path.join(rootPath, "data", "users.json")));
 

@@ -1,12 +1,21 @@
+export function post_generate_wrapper(postID) {
+  let post_wrapper = document.createElement("div");
+  post_wrapper.setAttribute("id", "post-wrapper-" + postID);
+  post_wrapper.setAttribute("class", "post-wrapper");
+  
+
+  return post_wrapper;
+}
+
 // returns a post html element given it's postID
-export async function post_create(postID) {
+export async function post_fetch(postID) {
   let res = await fetch("/components/post/" + postID);
   let post_html = await res.text(); // or response.json() if it's JSON
   return post_html;
 }
 
 // attatches event handlers and creates media sliders for a given post element's associated postID
-export function post_init(postID) {
+export function post_initialize(postID) {
   let post_element = document.querySelector("#post-" + postID);
 
   let post_loginwall = post_element.querySelector(".post-loginwall");
@@ -43,6 +52,7 @@ export function post_init(postID) {
         });
       }
 
+      /*
       let post_pin = post_element.querySelector(".post-pin");
       if(post_pin && post_pin != undefined && post_pin != null) {
         post_pin.addEventListener("click", () => {
@@ -53,6 +63,7 @@ export function post_init(postID) {
           }
         });
       }
+      */
 
       let post_text = post_element.querySelector(".post-text");
       if(post_text && post_text != undefined && post_text != null) {
@@ -81,70 +92,75 @@ export function post_init(postID) {
 
   let post_media_element = post_element.querySelector(".post-media");
   if(post_media_element && post_media_element != undefined && post_media_element != null) {
-    var media_swiper = new Swiper(post_element.querySelector(".post-media"), {
-      slidesPerView: 1,
-      spaceBetween: 0,
-      loop: false,
-      lazy: true,
-      navigation: {
-        nextEl: post_element.querySelector(".post-media-manual-control-right-hitbox"),
-        prevEl: post_element.querySelector(".post-media-manual-control-left-hitbox"),
-      },
-      on: {
-        slideChange: function () {
-          if(!post_element.querySelector(".post-media-type-image").classList.contains("hidden")) {
-            post_element.querySelector(".post-media-type-image").classList.add("hidden");
-          }
-          if(!post_element.querySelector(".post-media-type-video").classList.contains("hidden")) {
-            post_element.querySelector(".post-media-type-video").classList.add("hidden");
-          }
+    
+    let swiper_slide_elements = post_element.querySelectorAll(".swiper-slide");
 
-          let new_slide = this.slides[this.activeIndex];
-
-          if(new_slide.classList.contains("media-type-image")) {
-            post_element.querySelector(".post-media-type-image").classList.remove("hidden");
-          }
-
-          if(new_slide.classList.contains("media-type-video")) {
-            post_element.querySelector(".post-media-type-video").classList.remove("hidden");
-          }
-
-          post_element.querySelector(".post-media-active-slide").innerText = this.activeIndex + 1;
-
-          // hide right control on maximum
-          if(this.activeIndex == this.slides.length - 1) {
-            let control_right_hitbox_element = post_element.querySelector(".post-media-manual-control-right-hitbox");
-            if(!control_right_hitbox_element.classList.contains("hidden")) {
-              control_right_hitbox_element.classList.add("hidden");
+    if(swiper_slide_elements.length > 1) {
+      var media_swiper = new Swiper(post_element.querySelector(".post-media"), {
+        slidesPerView: 1,
+        spaceBetween: 0,
+        loop: false,
+        lazy: true,
+        navigation: {
+          nextEl: post_element.querySelector(".post-media-manual-control-right-hitbox"),
+          prevEl: post_element.querySelector(".post-media-manual-control-left-hitbox"),
+        },
+        on: {
+          slideChange: function () {
+            if(!post_element.querySelector(".post-media-type-image").classList.contains("hidden")) {
+              post_element.querySelector(".post-media-type-image").classList.add("hidden");
             }
-          }
-
-          // hide left control on minimum
-          if(this.activeIndex == 0) {
-            let control_left_hitbox_element = post_element.querySelector(".post-media-manual-control-left-hitbox");
-            if(!control_left_hitbox_element.classList.contains("hidden")) {
-              control_left_hitbox_element.classList.add("hidden");
+            if(!post_element.querySelector(".post-media-type-video").classList.contains("hidden")) {
+              post_element.querySelector(".post-media-type-video").classList.add("hidden");
             }
-          }
 
-          // add left control if not on first slide
-          if(this.activeIndex > 0) {
-            let control_left_hitbox_element = post_element.querySelector(".post-media-manual-control-left-hitbox");
-            if(control_left_hitbox_element.classList.contains("hidden")) {
-              control_left_hitbox_element.classList.remove("hidden");
+            let new_slide = this.slides[this.activeIndex];
+
+            if(new_slide.classList.contains("media-type-image")) {
+              post_element.querySelector(".post-media-type-image").classList.remove("hidden");
             }
-          }
 
-          // add right control if not on maximum
-          if(this.activeIndex < this.slides.length - 1) {
-            let control_right_hitbox_element = post_element.querySelector(".post-media-manual-control-right-hitbox");
-            if(control_right_hitbox_element.classList.contains("hidden")) {
-              control_right_hitbox_element.classList.remove("hidden");
+            if(new_slide.classList.contains("media-type-video")) {
+              post_element.querySelector(".post-media-type-video").classList.remove("hidden");
+            }
+
+            post_element.querySelector(".post-media-active-slide").innerText = this.activeIndex + 1;
+
+            // hide right control on maximum
+            if(this.activeIndex == this.slides.length - 1) {
+              let control_right_hitbox_element = post_element.querySelector(".post-media-manual-control-right-hitbox");
+              if(!control_right_hitbox_element.classList.contains("hidden")) {
+                control_right_hitbox_element.classList.add("hidden");
+              }
+            }
+
+            // hide left control on minimum
+            if(this.activeIndex == 0) {
+              let control_left_hitbox_element = post_element.querySelector(".post-media-manual-control-left-hitbox");
+              if(!control_left_hitbox_element.classList.contains("hidden")) {
+                control_left_hitbox_element.classList.add("hidden");
+              }
+            }
+
+            // add left control if not on first slide
+            if(this.activeIndex > 0) {
+              let control_left_hitbox_element = post_element.querySelector(".post-media-manual-control-left-hitbox");
+              if(control_left_hitbox_element.classList.contains("hidden")) {
+                control_left_hitbox_element.classList.remove("hidden");
+              }
+            }
+
+            // add right control if not on maximum
+            if(this.activeIndex < this.slides.length - 1) {
+              let control_right_hitbox_element = post_element.querySelector(".post-media-manual-control-right-hitbox");
+              if(control_right_hitbox_element.classList.contains("hidden")) {
+                control_right_hitbox_element.classList.remove("hidden");
+              }
             }
           }
         }
-      }
-    });
+      });
+    }
   }
 }
 

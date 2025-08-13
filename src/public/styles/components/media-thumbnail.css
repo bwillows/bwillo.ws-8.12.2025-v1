@@ -1,0 +1,13 @@
+.media-thumbnail-wrapper:hover { 
+  cursor: pointer;
+}
+.media-thumbnail {
+  width: 100%;
+  aspect-ratio: 1/1;
+  background-color: lightgray;
+  display: flex;
+  align-items: center; /* vertical center */
+  justify-content: center;
+  font-size: 1.5rem;
+  color: white;
+}

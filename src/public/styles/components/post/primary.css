@@ -85,7 +85,7 @@
 }
 .post-header-ellipses-dropdown-entry {
   padding: 12px;
-  min-width: 150px;
+  min-width: 200px;
   display: flex;
   justify-content: space-between;
 }

@@ -1,17 +1,50 @@
 {
-  "placeholder": {
+  "lrTQq3c": {
     "type": "image",
     "extension": "jpg",
     "files": {
-      "original": "/original/placeholder.jpg",
+      "original": "/original/lrTQq3c.jpg",
       "resized": {
-        "720": "/resized/720/placeholder.jpg",
-        "1080": "/resized/1080/placeholder.jpg",
-        "full": "/resized/full/placeholder.jpg"
+        "720": "/resized/720/lrTQq3c.jpg",
+        "1080": "/resized/1080/lrTQq3c.jpg",
+        "full": "/resized/full/lrTQq3c.jpg"
       }
     },
     "created": 0,
     "uploaded": 0,
-    "linked_post": "test"
+    "visibility": "public",
+    "linked_post": "ghUK7iJ"
+  },
+  "uHqNRXb": {
+    "type": "image",
+    "extension": "jpg",
+    "files": {
+      "original": "/original/lrTQq3c.jpg",
+      "resized": {
+        "720": "/resized/720/lrTQq3c.jpg",
+        "1080": "/resized/1080/lrTQq3c.jpg",
+        "full": "/resized/full/lrTQq3c.jpg"
+      }
+    },
+    "created": 0,
+    "uploaded": 0,
+    "visibility": "public",
+    "linked_post": "vUiK7bA"
+  },
+  "qieAcpH": {
+    "type": "video",
+    "extension": "mp4",
+    "files": {
+      "original": null,
+      "resized": {
+        "720": null,
+        "1080": null,
+        "full": null
+      }
+    },
+    "created": 0,
+    "uploaded": 0,
+    "visibility": "public",
+    "linked_post": "vUiK7bA"
   }
 }

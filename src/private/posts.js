@@ -10,9 +10,12 @@ const __dirname = path.dirname(__filename);
 
 const rootPath = process.cwd();
 
-let posts;
+export let posts;
+
 let posts_sorted = new Array();
+let posts_timestamp_sorted = new Array();
 let posts_pinned = new Array();
+
 
 export function load_all_posts() {
   posts = JSON.parse(fs.readFileSync(path.join(rootPath, "data", "posts.json")));
@@ -23,13 +26,22 @@ export function load_all_posts() {
     post_obj.id = post_key;
     if(post_obj.pinned != undefined && post_obj.pinned != null && post_obj.pinned == true) {
       posts_pinned.push(post_key);
-    } else {
-      intermediate_posts_sorted.push(post_obj);
     }
+    intermediate_posts_sorted.push(post_obj);
   }
   intermediate_posts_sorted.sort((a, b) => b.created - a.created);
   for(let post_obj of intermediate_posts_sorted) {
-    posts_sorted.push(post_obj.id);
+    posts_timestamp_sorted.push(post_obj.id);
+  }
+  for(let pinned_post_ID of posts_pinned) {
+    posts_sorted.push(pinned_post_ID);
+  }
+  for(let postID of posts_timestamp_sorted) {
+    if(posts[postID].pinned != undefined && posts[postID].pinned == true) {
+      // skip ( already added )
+    } else {  
+      posts_sorted.push(postID);
+    }
   }
 }
 
@@ -82,4 +94,11 @@ export function validate_postID_format(str) {
     }
   }
   return true;
+}
+
+export function get_posts_length() {
+  if(posts == null || posts == undefined) {
+    load_all_posts();
+  }
+  return posts_sorted.length;
 }
